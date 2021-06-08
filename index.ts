@@ -1,33 +1,16 @@
-var text = `  public string PNAME { get; set; }
-            public string NAME { get; set; }
-            public string SNAME { get; set; }
-            public string IDNO { get; set; }
-            public string BIRTHDATE { get; set; }
-            public string FANAME { get; set; }
-            public string MATHERNAME { get; set; }
-            public string NATION { get; set; }
-            public string RACE { get; set; }
-            public string ADDRESS { get; set; }
-            public string RECEIPTNO { get; set; }
-            public string RECEIPTORDER { get; set; }
-            public DateTime RECEIPTDATE { get; set; }
-            public string AMOUNT { get; set; }
-            public string INQDEPART { get; set; }
-            public string INQDOCDATE { get; set; }
-            public string INQDOCNO { get; set; }
-            public string RECID { get; set; }
-            public string POSITION { get; set; }
-            public string FULLNAME { get; set; }
-            public string INQPOSITION { get; set; }
-            public string INQNAME { get; set; }
-            public string INQREASON { get; set; }
-            public string USERUPDATE { get; set; }
-            public string FEE_BOOK_ID { get; set; }
-            public string RECEIPT_ORDER { get; set; }
-            public string RECEIPT_NO { get; set; }`;
+var text = `public string NAME { get; set; }
+        public string SNAME { get; set; }
+        public string IDNO { get; set; }
+        public string CH_ID { get; set; }
+        public string REMARK { get; set; }
+        public string SEQNO { get; set; }
+        public string NAMESDX { get; set; }
+        public string SNAMESDX { get; set; }`;
 
 function changeToPropFull(text: string) {
   let value = text
+    .replace('<', '&lt;')
+    .replace('>', '&gt;')
     .split(' ')
     .filter(item => !item.includes('public'))
     .filter(item => !item.includes('{'))
