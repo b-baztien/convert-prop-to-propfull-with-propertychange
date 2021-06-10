@@ -1,16 +1,11 @@
-var text = `public string NAME { get; set; }
-        public string SNAME { get; set; }
-        public string IDNO { get; set; }
-        public string CH_ID { get; set; }
-        public string REMARK { get; set; }
-        public string SEQNO { get; set; }
-        public string NAMESDX { get; set; }
-        public string SNAMESDX { get; set; }`;
+var text = ` public List<BatchFound> QryBatchFoundList { get; set; }
+public List<BatchNotFound> QryBatchNotFoundList { get; set; } 
+public List<BatchDoc> QryBatchDocList { get; set; } `;
 
 function changeToPropFull(text: string) {
   let value = text
-    .replace('<', '&lt;')
-    .replace('>', '&gt;')
+    .replaceAll('<', '&lt;')
+    .replaceAll('>', '&gt;')
     .split(' ')
     .filter(item => !item.includes('public'))
     .filter(item => !item.includes('{'))
