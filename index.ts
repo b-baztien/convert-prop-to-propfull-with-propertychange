@@ -1,9 +1,9 @@
-var text = ` public List<BatchFound> QryBatchFoundList { get; set; }
-public List<BatchNotFound> QryBatchNotFoundList { get; set; } 
-public List<BatchDoc> QryBatchDocList { get; set; } `;
+var text = `public string RECV_DEPT_OTH_ID { get; set; }
+        public string NAME { get; set; }`;
 
 function changeToPropFull(text: string) {
   let value = text
+    .trim()
     .replaceAll('<', '&lt;')
     .replaceAll('>', '&gt;')
     .split(' ')
