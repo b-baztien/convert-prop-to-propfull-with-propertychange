@@ -1,17 +1,14 @@
 var text = `public string RECV_DEPT_OTH_ID { get; set; }
-        public string NAME { get; set; }`;
+        public string NAME { get; set; } `;
 
 function changeToPropFull(text: string) {
   let value = text
     .trim()
     .replaceAll('<', '&lt;')
     .replaceAll('>', '&gt;')
-    .split(' ')
-    .filter(item => !item.includes('public'))
-    .filter(item => !item.includes('{'))
-    .filter(item => !item.includes('get;'))
-    .filter(item => !item.includes('set;'))
-    .filter(item => !item.includes('}'));
+    .replaceAll('public ', '')
+    .split('{ get; set; }')
+    .map(item => item.trim());
 
   let typeValue = '';
   let name = '';
