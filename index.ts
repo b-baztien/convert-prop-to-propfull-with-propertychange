@@ -1,5 +1,17 @@
-var text = `public string RECV_DEPT_OTH_ID { get; set; }
-        public string NAME { get; set; } `;
+var text = `public string LOCREC { get; set; }
+            public string FLAGFNC { get; set; }
+            public string RANK { get; set; }
+            public string NAME { get; set; }
+            public string POSITION1 { get; set; }
+            public string POSITION2 { get; set; }
+            public string DEPTNAME { get; set; }
+            public string TELNO { get; set; }
+            public string FLAG { get; set; }
+            public string ITEMNO { get; set; }
+            public string DEPTCODE { get; set; }
+            public string RANK_FULL { get; set; }
+            public string POSITION1_FULL { get; set; }
+            public string POSITION2_FULL { get; set; }`;
 
 function changeToPropFull(text: string) {
   let value = text
@@ -15,6 +27,9 @@ function changeToPropFull(text: string) {
   let requiredField = '';
 
   for (var item in value) {
+    typeValue = value[item].split(' ')[0];
+    name = value[item].split(' ')[1];
+
     if (value[item] !== '') {
       if (
         value[item].includes('[') ||
